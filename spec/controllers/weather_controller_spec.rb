@@ -3,14 +3,19 @@
 require 'rails_helper'
 
 describe WeatherController do
-  context 'when condition' do
-    it 'succeeds' do
-      get :show
+  describe "POST #create" do
+    it 'should return temperature, address and additional address info' do
+      post :create, params: { address: 'Paris' }
 
       json = JSON.parse(response.body)
 
       expect(response).to be_successful
-      expect(json['temperature']).to be_a(Float)
+
+      aggregate_failures do
+        expect(json['temperature']).to be_a(Float)
+        expect(json['address']).to eq('Paris')
+        expect(json['address_extra']).to eq('Paris, Île-de-France, France métropolitaine, France')
+      end
     end
   end
 end
