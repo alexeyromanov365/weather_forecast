@@ -3,7 +3,11 @@ class WeatherController < ApplicationController
   end
 
   def create
-    response = Faraday.get("https://nominatim.openstreetmap.org/search", { q: params[:address], format: "json" })
+    response = Faraday.get(
+      "https://nominatim.openstreetmap.org/search",
+      { q: params[:address], limit: 1, "accept-language" => "en", format: "json" }
+    )
+
     address_data = JSON.parse(response.body)
 
     location = OpenMeteo::Entities::Location.new(
@@ -11,13 +15,11 @@ class WeatherController < ApplicationController
       longitude: address_data.first["lon"].to_d
     )
 
-    variables = { current: %i[temperature_2m], hourly: %i[], daily: %i[] }
+    variables = { current: %i[temperature_2m weather_code], daily: %i[temperature_2m_max temperature_2m_min] }
+
     weather_data = OpenMeteo::Forecast.new.get(location: location, variables: variables)
 
-    render json: {
-      temperature: weather_data.current.item.temperature_2m,
-      address: address_data.first["name"],
-      address_extra: address_data.first["display_name"]
-    }, status: 200
+    @address_data = address_data.first
+    @weather_data = weather_data
   end
 end

@@ -73,12 +73,17 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
     ast (2.4.3)
+    autoprefixer-rails (10.4.19.0)
+      execjs (~> 2)
     base64 (0.2.0)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
+    bootstrap (5.3.3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.11.8, < 3)
     brakeman (7.0.2)
       racc
     builder (3.3.0)
@@ -132,6 +137,7 @@ GEM
       dry-schema (~> 1.14)
       zeitwerk (~> 2.6)
     erubi (1.13.1)
+    execjs (2.10.0)
     faraday (2.13.0)
       faraday-net_http (>= 2.0, < 3.5)
       json
@@ -140,6 +146,7 @@ GEM
       net-http (>= 0.5.0)
     faraday-retry (2.3.1)
       faraday (~> 2.0)
+    ffi (1.15.5)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.7)
@@ -206,6 +213,7 @@ GEM
     parser (3.3.7.4)
       ast (~> 2.4.1)
       racc
+    popper_js (2.11.8)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -306,6 +314,14 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     securerandom (0.4.1)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -324,6 +340,7 @@ GEM
     sqlite3 (2.6.0-x86_64-linux-musl)
     stringio (3.1.6)
     thor (1.3.2)
+    tilt (2.1.0)
     timeout (0.4.3)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
@@ -357,6 +374,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bootstrap (~> 5.3.3)
   brakeman
   debug
   jbuilder
@@ -365,6 +383,7 @@ DEPENDENCIES
   rails (~> 7.2.2, >= 7.2.2.1)
   rspec-rails (~> 7.0.0)
   rubocop-rails-omakase
+  sassc-rails (~> 2.1, >= 2.1.2)
   sprockets-rails
   sqlite3 (>= 1.4)
   tzinfo-data

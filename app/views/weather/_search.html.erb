@@ -1,0 +1,18 @@
+<h3 class="mb-4 pb-2 fw-normal">Check the weather forecast</h3>
+
+<%= form_with url: weather_path, method: :post, local: true do |form| %>
+  <div class="row g-3">
+    <div class="col-auto">
+      <%= form.text_field :address,
+                          id: 'address',
+                          class: 'form-control',
+                          placeholder: 'Search',
+                          aria: { label: 'Search' },
+                          required: true %>
+    </div>
+
+    <div class="col-auto">
+      <%= form.submit "Search", class: 'btn btn-primary mb-3' %>
+    </div>
+  </div>
+<% end %>

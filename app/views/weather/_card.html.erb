@@ -1,0 +1,20 @@
+<div class="card shadow-0 border">
+  <div class="card-body p-4">
+    <h4 class="mb-1 sfw-normal"><%= @address_data['name'] %></h4>
+    <h6 class="mb-1 sfw-normal"><%= @address_data['display_name'] %></h6>
+
+    <p class="mb-2">Current temperature: <strong><%= @weather_data.current.item.temperature_2m %>°C</strong></p>
+
+    <p>
+      Max: <strong><%= @weather_data.daily.items.first.temperature_2m_min %>°C</strong>
+      , Min: <strong><%= @weather_data.daily.items.first.temperature_2m_max %>°C</strong>
+    </p>
+
+    <div class="d-flex flex-row align-items-center">
+      <p class="mb-0 me-4"><%= I18n.t("wmo_codes.#{@weather_data.current.item.weather_code}") %></p>
+      <i class="fas fa-cloud fa-3x" style="color: #eee;"></i>
+    </div>
+  </div>
+</div>
+
+

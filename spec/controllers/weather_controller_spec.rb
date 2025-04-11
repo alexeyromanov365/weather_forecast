@@ -7,14 +7,16 @@ describe WeatherController do
     it 'should return temperature, address and additional address info' do
       post :create, params: { address: 'Paris' }
 
-      json = JSON.parse(response.body)
-
       expect(response).to be_successful
 
       aggregate_failures do
-        expect(json['temperature']).to be_a(Float)
-        expect(json['address']).to eq('Paris')
-        expect(json['address_extra']).to eq('Paris, Île-de-France, France métropolitaine, France')
+        expect(subject.instance_variable_get('@address_data')['name']).to eq('Paris')
+        expect(subject.instance_variable_get('@address_data')['display_name'])
+          .to eq('Paris, Ile-de-France, Metropolitan France, France')
+        expect(subject.instance_variable_get('@weather_data').current.item.temperature_2m).to be_a(Float)
+        expect(subject.instance_variable_get('@weather_data').current.item.weather_code).to be_a(Integer)
+        expect(subject.instance_variable_get('@weather_data').daily.items.first.temperature_2m_min).to be_a(Float)
+        expect(subject.instance_variable_get('@weather_data').daily.items.first.temperature_2m_max).to be_a(Float)
       end
     end
   end

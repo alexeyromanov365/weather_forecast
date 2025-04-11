@@ -47,3 +47,8 @@ group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 end
+
+group :production, :development do
+  gem "bootstrap", "~> 5.3.3"
+  gem "sassc-rails", "~> 2.1", ">= 2.1.2"
+end
