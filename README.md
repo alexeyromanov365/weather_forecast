@@ -1,24 +1,44 @@
-# README
+# Weather Forecast Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A Ruby on Rails application that provides weather forecasts using OpenMeteo API and geocoding services.
 
-Things you may want to cover:
+## Key features:
+- Address-based weather lookup
+- Geocoding integration
+- Weather data caching (30 minutes)
+- Responsive design
+- Error handling
 
-* Ruby version
+## Ruby version
+- Ruby 3.1.0 or higher (Ruby 3.3 recommended version)
+- Rubygems 1.8.11 or higher
 
-* System dependencies
+## Installation
 
-* Configuration
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/alexeyromanov365/weather_forecast.git
+   cd weather_forecast
+   
+2. Run the puma server:
+    ```bash
+    rails s
+   
+3. Open your browser and go to `localhost:3000`
 
-* Database creation
+## API Endpoints
 
-* Database initialization
+### `GET /`
+- Description: Weather search form page
+- Response: HTML page with search interface
 
-* How to run the test suite
+### `POST /weather`
+- Description: Get weather data for specified address
+- Parameters:
+  ```json
+  {
+    "address": "string (required)"
+  }
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Example Response
+[Response](example_response.json)
