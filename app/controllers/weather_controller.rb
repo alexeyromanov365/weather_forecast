@@ -3,23 +3,15 @@ class WeatherController < ApplicationController
   end
 
   def create
-    response = Faraday.get(
-      "https://nominatim.openstreetmap.org/search",
-      { q: params[:address], limit: 1, "accept-language" => "en", format: "json" }
-    )
+    weather_service = WeatherService.new(params[:address])
 
-    address_data = JSON.parse(response.body)
+    @address_data = weather_service.address_data
+    unless @address_data
+      flash.now[:alert] = "Could not find location for the provided address"
+      render :show and return
+    end
 
-    location = OpenMeteo::Entities::Location.new(
-      latitude: address_data.first["lat"].to_d,
-      longitude: address_data.first["lon"].to_d
-    )
-
-    variables = { current: %i[temperature_2m weather_code], daily: %i[temperature_2m_max temperature_2m_min] }
-
-    weather_data = OpenMeteo::Forecast.new.get(location: location, variables: variables)
-
-    @address_data = address_data.first
-    @weather_data = weather_data
+    @from_cache = weather_service.from_cache?
+    @weather_data = weather_service.weather_data
   end
 end

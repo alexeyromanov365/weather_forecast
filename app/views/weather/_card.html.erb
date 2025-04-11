@@ -14,6 +14,12 @@
       <p class="mb-0 me-4"><%= I18n.t("wmo_codes.#{@weather_data.current.item.weather_code}") %></p>
       <i class="fas fa-cloud fa-3x" style="color: #eee;"></i>
     </div>
+
+    <% if @from_cache %>
+      <div class="alert alert-info mt-3">
+        <strong>Note:</strong> The weather data is pulled from the cache.
+      </div>
+    <% end %>
   </div>
 </div>
 
