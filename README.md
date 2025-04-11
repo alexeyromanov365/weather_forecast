@@ -24,7 +24,9 @@ A Ruby on Rails application that provides weather forecasts using OpenMeteo API 
     ```bash
     rails s
    
-3. Open your browser and go to `localhost:3000`
+3. Open your browser and go to
+   ```ruby
+   localhost:3000
 
 ## API Endpoints
 
