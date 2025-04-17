@@ -13,5 +13,10 @@ class WeatherController < ApplicationController
 
     @from_cache = weather_service.from_cache?
     @weather_data = weather_service.weather_data
+
+    unless @weather_data
+      flash.now[:alert] = "Unable to fetch weather data. Please try again later."
+      render :show and return
+    end
   end
 end
