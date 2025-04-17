@@ -2,16 +2,27 @@
 
 A Ruby on Rails application that provides weather forecasts using OpenMeteo API and geocoding services.
 
-## Key features:
-- Address-based weather lookup
-- Geocoding integration
-- Weather data caching (30 minutes)
-- Responsive design
-- Error handling
+## Features
 
-## Ruby version
-- Ruby 3.1.0 or higher (Ruby 3.3 recommended version)
-- Rubygems 1.8.11 or higher
+- **Address-based Weather Lookup**: Enter any address to get weather information
+- **Geocoding Integration**: Uses Geocoder gem for address-to-coordinates conversion
+- **Weather Data Caching**: Implements 30-minute caching to reduce API calls
+- **Error Handling**: Comprehensive error handling for geocoding and weather services
+- **Responsive Design**: Works well on both desktop and mobile devices
+
+## Architecture
+
+The application follows a service-oriented architecture with the following components:
+
+- **GeocoderWrapper**: Handles all geocoding operations with error handling
+- **GeocodingService**: Provides a clean interface for accessing geocoding data
+- **WeatherService**: Manages weather data retrieval and caching
+- **OpenMeteoService**: Handles communication with the OpenMeteo API
+
+## Prerequisites
+
+- Ruby 3.1.0 or higher (Ruby 3.3 recommended)
+- Rails 7.0 or higher
 
 ## Installation
 
@@ -19,28 +30,58 @@ A Ruby on Rails application that provides weather forecasts using OpenMeteo API 
    ```bash
    git clone https://github.com/alexeyromanov365/weather_forecast.git
    cd weather_forecast
-   
-2. Run the puma server:
-    ```bash
-    rails s
-   
-3. Open your browser and go to
-   ```ruby
-   localhost:3000
+   ```
 
-## API Endpoints
+2. Install dependencies:
+   ```bash
+   bundle install
+   ```
 
-### `GET /`
-- Description: Weather search form page
-- Response: HTML page with search interface
+3. Start the server:
+   ```bash
+   rails s
+   ```
 
-### `POST /weather`
-- Description: Get weather data for specified address
-- Parameters:
+4. Visit `http://localhost:3000` in your browser
+
+## API Documentation
+
+### Weather Search
+
+#### GET /
+- **Description**: Displays the weather search form
+- **Response**: HTML page with search interface
+
+#### POST /weather
+- **Description**: Get weather data for specified address
+- **Parameters**:
   ```json
   {
     "address": "string (required)"
   }
+  ```
+- **Response**: JSON object containing weather data
 
-## Example Response
-[Response](example_response.json)
+## Error Handling
+
+The application implements comprehensive error handling:
+
+- **Geocoding Errors**: Handles service unavailability and invalid addresses
+- **Weather API Errors**: Manages API timeouts and invalid responses
+- **User Feedback**: Provides clear error messages to users
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+No license
+
+## Support
+
+For support, please open an issue in the GitHub repository or contact the maintainers.
