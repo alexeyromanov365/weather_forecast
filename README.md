@@ -10,6 +10,24 @@ A Ruby on Rails application that provides weather forecasts using OpenMeteo API 
 - **Error Handling**: Comprehensive error handling for geocoding and weather services
 - **Responsive Design**: Works well on both desktop and mobile devices
 
+## Screenshots
+
+### Main Search Page
+![Main Search Page](docs/images/search_page.png)
+*The main search page where users can enter an address to get weather information*
+
+### Weather Results
+![Weather Results](docs/images/weather_results.png)
+*Display of weather information for the searched location*
+
+## Cached Weather Results
+![Cached Weather Results](docs/images/cached_weather_results.png)
+*Display of cached weather information for the searched location*
+
+### Error Handling
+![Error Handling](docs/images/error_handling.png)
+*Example of error handling when location cannot be found*
+
 ## Architecture
 
 The application follows a service-oriented architecture with the following components:
