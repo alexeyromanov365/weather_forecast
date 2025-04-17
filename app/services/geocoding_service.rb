@@ -8,7 +8,7 @@ class GeocodingService
   end
 
   def postal_code
-    Geocoder.search(coordinates).first.postal_code
+    GeocoderWrapper.search(coordinates)&.postal_code
   end
 
   def coordinates
@@ -16,11 +16,11 @@ class GeocodingService
   end
 
   def latitude
-    geocoded_address.latitude.to_d
+    geocoded_address&.latitude&.to_d
   end
 
   def longitude
-    geocoded_address.longitude.to_d
+    geocoded_address&.longitude&.to_d
   end
 
   private
@@ -28,6 +28,6 @@ class GeocodingService
   attr_reader :address
 
   def geocoded_address
-    @geocoded_address ||= Geocoder.search(address).first
+    @geocoded_address ||= GeocoderWrapper.search(address)
   end
 end
