@@ -51,6 +51,6 @@ group :development do
 end
 
 group :production, :development do
-  gem "bootstrap", "~> 5.3.3"
+  gem "bootstrap", "~> 5.3.5"
   gem "sassc-rails", "~> 2.1", ">= 2.1.2"
 end
