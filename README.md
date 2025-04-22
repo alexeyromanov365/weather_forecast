@@ -20,7 +20,7 @@ A Ruby on Rails application that provides weather forecasts using OpenMeteo API 
 ![Weather Results](docs/images/weather_results.png)
 *Display of weather information for the searched location*
 
-## Cached Weather Results
+### Cached Weather Results
 ![Cached Weather Results](docs/images/cached_weather_results.png)
 *Display of cached weather information for the searched location*
 
