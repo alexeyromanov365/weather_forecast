@@ -73,16 +73,13 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
     ast (2.4.3)
-    autoprefixer-rails (10.4.19.0)
-      execjs (~> 2)
     base64 (0.2.0)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    bootstrap (5.3.3)
-      autoprefixer-rails (>= 9.1.0)
+    bootstrap (5.3.5)
       popper_js (>= 2.11.8, < 3)
     brakeman (7.0.2)
       racc
@@ -138,7 +135,6 @@ GEM
       dry-schema (~> 1.14)
       zeitwerk (~> 2.6)
     erubi (1.13.1)
-    execjs (2.10.0)
     faraday (2.13.0)
       faraday-net_http (>= 2.0, < 3.5)
       json
@@ -390,7 +386,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  bootstrap (~> 5.3.3)
+  bootstrap (~> 5.3.5)
   brakeman
   debug
   geocoder (~> 1.8, >= 1.8.5)
