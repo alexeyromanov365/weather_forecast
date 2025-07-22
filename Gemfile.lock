@@ -77,7 +77,7 @@ GEM
       execjs (~> 2)
     base64 (0.2.0)
     benchmark (0.4.0)
-    bigdecimal (3.1.9)
+    bigdecimal (3.2.2)
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
@@ -124,7 +124,7 @@ GEM
       dry-types (~> 1.8, >= 1.8.2)
       ice_nine (~> 0.11)
       zeitwerk (~> 2.6)
-    dry-types (1.8.2)
+    dry-types (1.8.3)
       bigdecimal (~> 3.0)
       concurrent-ruby (~> 1.0)
       dry-core (~> 1.0)
@@ -139,13 +139,13 @@ GEM
       zeitwerk (~> 2.6)
     erubi (1.13.1)
     execjs (2.10.0)
-    faraday (2.13.0)
+    faraday (2.13.3)
       faraday-net_http (>= 2.0, < 3.5)
       json
       logger
-    faraday-net_http (3.4.0)
+    faraday-net_http (3.4.1)
       net-http (>= 0.5.0)
-    faraday-retry (2.3.1)
+    faraday-retry (2.3.2)
       faraday (~> 2.0)
     ffi (1.15.5)
     geocoder (1.8.5)
@@ -164,7 +164,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
-    json (2.10.2)
+    json (2.13.0)
     language_server-protocol (3.17.0.4)
     lint_roller (1.1.0)
     logger (1.7.0)
@@ -208,7 +208,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.18.7-x86_64-linux-musl)
       racc (~> 1.4)
-    open-meteo (0.3.4)
+    open-meteo (0.3.5)
       dry-struct (~> 1.0, >= 1.0.0)
       dry-validation (~> 1.0, >= 1.0.0)
       faraday (~> 2.0, >= 2.0.0)
@@ -374,7 +374,7 @@ GEM
       base64
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    zeitwerk (2.7.2)
+    zeitwerk (2.7.3)
 
 PLATFORMS
   aarch64-linux
@@ -395,7 +395,7 @@ DEPENDENCIES
   debug
   geocoder (~> 1.8, >= 1.8.5)
   jbuilder
-  open-meteo (~> 0.3.4)
+  open-meteo (~> 0.3.5)
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
   rspec-rails (~> 7.1.1)
